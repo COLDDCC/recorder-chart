@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# AI crawlers are welcome to read and quote the charts.
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+Sitemap: https://example.com/sitemap.xml

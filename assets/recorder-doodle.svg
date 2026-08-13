@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 170" fill="none" role="img" aria-label="Hand-drawn recorder with floating music notes">
+  <g transform="rotate(-8 230 92)" stroke="#1C2434" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M118 78 q-18 -4 -24 3 q-6 7 2 12"/>
+    <path d="M150 74 C190 60 235 62 268 72 C300 82 322 94 322 110 C322 126 296 134 258 131 C220 128 176 123 156 115 C136 107 134 92 150 74 Z"/>
+    <path d="M162 76 q11 5 15 13" stroke="#D99A12" stroke-width="2.6"/>
+    <path d="M316 112 q6 7 1 13"/>
+  </g>
+  <g transform="rotate(-8 230 92)" fill="#4B3FA0">
+    <circle cx="176" cy="96" r="5"/>
+    <circle cx="192" cy="98" r="5"/>
+    <circle cx="208" cy="99" r="5"/>
+    <circle cx="224" cy="100" r="5"/>
+    <circle cx="240" cy="100" r="5"/>
+    <circle cx="256" cy="100" r="4.5"/>
+    <circle cx="271" cy="100" r="4.5"/>
+  </g>
+  <g stroke="#4B3FA0" stroke-width="3.2" stroke-linecap="round">
+    <path d="M366 118 v -44"/>
+    <path d="M366 74 c10 6 7 20 -5 24"/>
+    <path d="M398 110 v -40"/>
+    <path d="M398 70 c10 6 7 20 -5 24"/>
+  </g>
+  <g fill="#4B3FA0">
+    <ellipse cx="356" cy="122" rx="7" ry="5.5" transform="rotate(-18 356 122)"/>
+    <ellipse cx="388" cy="114" rx="7" ry="5.5" transform="rotate(-18 388 114)"/>
+  </g>
+  <g fill="#D99A12">
+    <path d="M430 46 q4 12 14 14 q-10 2 -14 14 q-4 -12 -14 -14 q10 -2 14 -14 z"/>
+    <path d="M320 34 q3 9 10 11 q-7 1 -10 10 q-3 -9 -10 -11 q7 -1 10 -10 z"/>
+    <circle cx="448" cy="134" r="3"/>
+  </g>
+  <circle cx="82" cy="142" r="2.5" fill="#DCD6C6"/>
+</svg>

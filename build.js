@@ -22,8 +22,8 @@ const TPL = path.join(ROOT, "templates");
 
 /* ---- P0-1 configuration — edit these two lines when going live ---- */
 const CONFIG = {
-  domain: "https://example.com",
-  email:  "hello@example.com"
+  domain: "https://recorder-chart.com",
+  email:  "hello@recorder-chart.com"
 };
 
 /* Shared snippets injected into every page. */

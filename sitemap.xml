@@ -1,55 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://example.com/</loc>
+    <loc>https://recorder-chart.com/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://example.com/alto.html</loc>
+    <loc>https://recorder-chart.com/alto.html</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://example.com/tenor.html</loc>
+    <loc>https://recorder-chart.com/tenor.html</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://example.com/bass.html</loc>
+    <loc>https://recorder-chart.com/bass.html</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://example.com/recorder-fingering-chart-pdf.html</loc>
+    <loc>https://recorder-chart.com/recorder-fingering-chart-pdf.html</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://example.com/german-fingering-recorder-chart.html</loc>
+    <loc>https://recorder-chart.com/german-fingering-recorder-chart.html</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://example.com/recorder-notes.html</loc>
+    <loc>https://recorder-chart.com/recorder-notes.html</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://example.com/privacy.html</loc>
+    <loc>https://recorder-chart.com/privacy.html</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://example.com/terms.html</loc>
+    <loc>https://recorder-chart.com/terms.html</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>

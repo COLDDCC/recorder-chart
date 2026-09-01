@@ -11,4 +11,4 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
-Sitemap: https://example.com/sitemap.xml
+Sitemap: https://recorder-chart.com/sitemap.xml

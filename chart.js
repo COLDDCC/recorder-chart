@@ -13,7 +13,7 @@
 var DATA = window.RecorderData;
 
 /* P0-1 — real address goes here once the domain/email is decided. */
-var CONTACT = "hello@example.com";
+var CONTACT = "hello@recorder-chart.com";
 
 var DEFAULT_F = document.body.dataset.instrument === "F";
 

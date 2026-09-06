@@ -183,10 +183,10 @@ console.log("built robots.txt");
 /* ---- sitemap.xml ---- */
 var TODAY = "2026-08-06";
 var URLS = [
-  { loc: "/",                               prio: "1.0" },
-  { loc: "/alto.html",                      prio: "0.9" },
-  { loc: "/tenor.html",                     prio: "0.8" },
-  { loc: "/bass.html",                      prio: "0.8" },
+  { loc: "/",                               prio: "1.0", image: "/assets/soprano-recorder-fingering-chart-baroque.png" },
+  { loc: "/alto.html",                      prio: "0.9", image: "/assets/alto-recorder-fingering-chart-baroque.png" },
+  { loc: "/tenor.html",                     prio: "0.8", image: "/assets/tenor-recorder-fingering-chart-baroque.png" },
+  { loc: "/bass.html",                      prio: "0.8", image: "/assets/bass-recorder-fingering-chart-baroque.png" },
   { loc: "/recorder-fingering-chart-pdf.html", prio: "0.8" },
   { loc: "/german-fingering-recorder-chart.html", prio: "0.7" },
   { loc: "/recorder-notes.html",            prio: "0.7" },
@@ -194,13 +194,14 @@ var URLS = [
   { loc: "/terms.html",                     prio: "0.3" }
 ];
 var sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n'
-  + '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+  + '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n';
 URLS.forEach(function (u) {
   sitemap += "  <url>\n"
     + "    <loc>" + CONFIG.domain + u.loc + "</loc>\n"
     + "    <lastmod>" + TODAY + "</lastmod>\n"
     + "    <changefreq>monthly</changefreq>\n"
     + "    <priority>" + u.prio + "</priority>\n"
+    + (u.image ? "    <image:image><image:loc>" + CONFIG.domain + u.image + "</image:loc></image:image>\n" : "")
     + "  </url>\n";
 });
 sitemap += "</urlset>\n";

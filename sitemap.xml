@@ -1,28 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://recorder-chart.com/</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image><image:loc>https://recorder-chart.com/assets/soprano-recorder-fingering-chart-baroque.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://recorder-chart.com/alto.html</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image><image:loc>https://recorder-chart.com/assets/alto-recorder-fingering-chart-baroque.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://recorder-chart.com/tenor.html</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://recorder-chart.com/assets/tenor-recorder-fingering-chart-baroque.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://recorder-chart.com/bass.html</loc>
     <lastmod>2026-08-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://recorder-chart.com/assets/bass-recorder-fingering-chart-baroque.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://recorder-chart.com/recorder-fingering-chart-pdf.html</loc>

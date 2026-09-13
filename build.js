@@ -40,6 +40,7 @@ const NAV_LINKS = [
   { href: "/tenor.html",                        label: "Tenor",    key: "tenor"  },
   { href: "/bass.html",                         label: "Bass",     key: "bass"   },
   { href: "/sopranino.html",                    label: "Sopranino", key: "sopranino" },
+  { href: "/great-bass.html",                   label: "Great Bass", key: "great-bass" },
   { href: "/recorder-fingering-chart-pdf.html", label: "PDF &amp; Print", key: "pdf" },
   { href: "/german-fingering-recorder-chart.html", label: "German", key: "german" },
   { href: "/recorder-notes.html",               label: "Notes",    key: "notes"  },
@@ -55,7 +56,7 @@ function navFor(activeKey) {
 const FOOTER = `    <p class="foot-brand">Recorder<span>Chart</span> — free recorder fingering references</p>
     <p class="foot-verify">All 28 fingerings were checked note-by-note against the American Recorder Society and Yamaha charts in August 2026; the source behind every fingering is listed on each chart page.</p>
     <nav class="foot-links" aria-label="Footer">
-      <a href="/">Soprano</a><a href="/alto.html">Alto</a><a href="/tenor.html">Tenor</a><a href="/bass.html">Bass</a><a href="/sopranino.html">Sopranino</a>
+      <a href="/">Soprano</a><a href="/alto.html">Alto</a><a href="/tenor.html">Tenor</a><a href="/bass.html">Bass</a><a href="/sopranino.html">Sopranino</a><a href="/great-bass.html">Great Bass</a>
       <a href="/recorder-fingering-chart-pdf.html">Printable PDF</a><a href="/german-fingering-recorder-chart.html">German fingering</a><a href="/recorder-notes.html">Beginner notes</a>
       <a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/#contact">Report a correction</a>
     </nav>
@@ -162,6 +163,8 @@ var PAGES = [
     sheet: { title: "Bass Recorder &mdash; Fingering Chart", pdf: "bass-recorder-fingering-chart.pdf" } },
   { tpl: "sopranino.template.html", out: "sopranino.html", key: "sopranino", instrument: "F",
     sheet: { title: "Sopranino Recorder &mdash; Fingering Chart", pdf: "sopranino-recorder-fingering-chart.pdf" } },
+  { tpl: "great-bass.template.html", out: "great-bass.html", key: "great-bass", instrument: "C",
+    sheet: { title: "Great Bass Recorder &mdash; Fingering Chart", pdf: "great-bass-recorder-fingering-chart.pdf" } },
   { tpl: "pdf.template.html",   out: "recorder-fingering-chart-pdf.html", key: "pdf", instrument: "C",
     sheet: { title: "Soprano Recorder &mdash; Fingering Chart", pdf: "recorder-fingering-chart.pdf" } },
   { tpl: "german.template.html", out: "german-fingering-recorder-chart.html", key: "german", instrument: null, sheet: null },
@@ -191,6 +194,7 @@ var URLS = [
   { loc: "/tenor.html",                     prio: "0.8" },
   { loc: "/bass.html",                      prio: "0.8" },
   { loc: "/sopranino.html",                 prio: "0.6" },
+  { loc: "/great-bass.html",                prio: "0.6" },
   { loc: "/recorder-fingering-chart-pdf.html", prio: "0.8" },
   { loc: "/german-fingering-recorder-chart.html", prio: "0.7" },
   { loc: "/recorder-notes.html",            prio: "0.7" },

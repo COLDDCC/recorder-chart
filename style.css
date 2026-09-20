@@ -116,6 +116,30 @@ code.fing{font-family:"IBM Plex Mono",monospace;font-size:14px;background:#fff;b
 .cell svg{width:100%;max-width:44px;height:auto;margin:5px auto 0;display:block}
 .cell .m{font-family:"IBM Plex Mono",monospace;font-size:8px;line-height:1.35;color:var(--ink-soft);margin-top:5px;min-height:11px}
 
+/* ==================================================================
+   BAROQUE vs GERMAN — paired fingering grid
+   ================================================================== */
+.vsgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px;margin-top:20px}
+.vscell{border:1px solid var(--rule);border-radius:3px;padding:10px 8px 11px;text-align:center;background:#fff}
+.vscell.diff{border-color:var(--mimeo);background:var(--mimeo-soft)}
+.vscell .n{font-family:"Fraunces",serif;font-size:21px;font-weight:600;line-height:1}
+.vscell .n .oct{font-size:12px;color:var(--ink-soft);margin-left:1px}
+.vscell .pair{display:flex;justify-content:center;gap:10px;margin:8px 0 0}
+.vscell figure{margin:0;flex:0 0 auto}
+.vscell figure svg{width:40px;height:auto;display:block;margin:0 auto}
+.vscell figcaption{font-family:"IBM Plex Mono",monospace;font-size:8px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px}
+.vscell figure.unver{display:flex;flex-direction:column;justify-content:space-between;width:40px}
+.vscell figure.unver .mark{height:96px;display:flex;align-items:center;justify-content:center;border:1px dashed var(--rule);border-radius:3px;font-size:18px;color:var(--ink-soft)}
+.vscell .v{font-size:11.5px;line-height:1.4;color:var(--ink-soft);margin-top:8px}
+.vscell.diff .v{color:var(--ink)}
+.vscell .c{display:flex;flex-wrap:wrap;gap:4px;justify-content:center;margin-top:7px}
+.vscell .c code.fing{font-size:10.5px;padding:1px 5px}
+.vscell .c code.fing.alt{background:var(--mimeo);border-color:var(--mimeo);color:#fff}
+
+table.cmp.letters th .oct{font-size:11px;color:var(--ink-soft);margin-left:1px;font-weight:400}
+table.cmp.letters tbody th{background:#fff;font-family:"Fraunces",serif;font-size:18px;width:6em}
+table.cmp.letters td:first-of-type{width:11em}
+
 details{border-bottom:1px solid var(--rule);padding:15px 0;max-width:76ch}
 details summary{cursor:pointer;font-weight:600;font-size:17px;list-style:none}
 details summary::-webkit-details-marker{display:none}

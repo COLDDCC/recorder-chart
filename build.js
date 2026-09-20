@@ -42,7 +42,7 @@ const NAV_LINKS = [
   { href: "/sopranino.html",                    label: "Sopranino", key: "sopranino" },
   { href: "/great-bass.html",                   label: "Great Bass", key: "great-bass" },
   { href: "/recorder-fingering-chart-pdf.html", label: "PDF &amp; Print", key: "pdf" },
-  { href: "/german-fingering-recorder-chart.html", label: "German", key: "german" },
+  { href: "/german-fingering-recorder-chart.html", label: "Baroque vs German", key: "german" },
   { href: "/recorder-notes.html",               label: "Notes",    key: "notes"  },
   { href: "/#faq",                              label: "FAQ",      key: null     }
 ];
@@ -57,7 +57,7 @@ const FOOTER = `    <p class="foot-brand">Recorder<span>Chart</span> — free re
     <p class="foot-verify">All 28 fingerings were checked note-by-note against the American Recorder Society and Yamaha charts in August 2026; the source behind every fingering is listed on each chart page.</p>
     <nav class="foot-links" aria-label="Footer">
       <a href="/">Soprano</a><a href="/alto.html">Alto</a><a href="/tenor.html">Tenor</a><a href="/bass.html">Bass</a><a href="/sopranino.html">Sopranino</a><a href="/great-bass.html">Great Bass</a>
-      <a href="/recorder-fingering-chart-pdf.html">Printable PDF</a><a href="/german-fingering-recorder-chart.html">German fingering</a><a href="/recorder-notes.html">Beginner notes</a>
+      <a href="/recorder-fingering-chart-pdf.html">Printable PDF</a><a href="/german-fingering-recorder-chart.html">Baroque vs German fingering</a><a href="/recorder-notes.html">Recorder notes with letters</a>
       <a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/#contact">Report a correction</a>
     </nav>
     <p class="foot-copy">Maintained by SKY AND WIND &middot; &copy; 2026</p>`;
@@ -136,6 +136,101 @@ function sheetHTML(title, pdfFile, instrument) {
     + '</div>';
 }
 
+/* ==================================================================
+   GERMAN FINGERING — comparison data for the Baroque vs German page.
+
+   Scope note (P0-4 discipline): this site only publishes fingerings
+   it has checked. The two German fingerings below — F and F♯ — are
+   the defining difference between the systems and are given
+   identically by every German-fingering source we checked, so they
+   are published as diagrams. The German accidentals (C♯, E♭, G♯,
+   B♭) also differ from Baroque, but they vary between makers and we
+   have not verified them note-by-note, so they are marked as
+   differing rather than drawn. Do not fill them in from memory.
+
+   s: "same"    — the German fingering is the Baroque one
+      "german"  — differs, and we publish the German fingering (h)
+      "differs" — differs, not verified here
+   ================================================================== */
+const GERMAN = [
+  { s: "same" },                                                                     /*  0  C  */
+  { s: "differs" },                                                                  /*  1  C♯ */
+  { s: "same" },                                                                     /*  2  D  */
+  { s: "differs" },                                                                  /*  3  E♭ */
+  { s: "same" },                                                                     /*  4  E  */
+  { s: "german", h: [1,1,1,1,1,0,0,0], m: "in sequence — one more finger off E" },   /*  5  F  */
+  { s: "german", h: [1,1,1,1,0,1,1,1], m: "the fork lands here instead" },           /*  6  F♯ */
+  { s: "same" },                                                                     /*  7  G  */
+  { s: "differs" },                                                                  /*  8  G♯ */
+  { s: "same" },                                                                     /*  9  A  */
+  { s: "differs" },                                                                  /* 10  B♭ */
+  { s: "same" },                                                                     /* 11  B  */
+  { s: "same" }                                                                      /* 12  C  */
+];
+
+/* Hole notation shared by the comparison grid and the letter-note
+   table: 0 = thumb, 1-7 = the finger holes, ø = pinched thumb,
+   n½ = the outer hole of a paired hole only. */
+function fingerCode(h) {
+  var parts = [];
+  if (h[0] === 1) parts.push("0");
+  else if (h[0] === 0.5) parts.push("ø");
+  for (var i = 1; i <= 7; i++) {
+    if (h[i] === 1) parts.push(String(i));
+    else if (h[i] === 0.5) parts.push(i + "½");
+  }
+  return parts.length ? parts.join(" ") : "all open";
+}
+
+/* Baroque vs German grid for the first octave (P1: the comparison is
+   the page, so it is server-rendered like every other chart). */
+function compareHTML() {
+  var midi = MIDI.C;
+  var cells = GERMAN.map(function (g, i) {
+    var n = data.noteInfo(i, midi), b = data.NOTES[i];
+    var fig = function (h, id, cap) {
+      return '<figure><svg viewBox="0 0 40 96" aria-hidden="true">' + data.miniSVG(h, id) + "</svg>"
+        + "<figcaption>" + cap + "</figcaption></figure>";
+    };
+    var right, state, verdict;
+    if (g.s === "german") {
+      state = "diff";
+      right = fig(g.h, "vg" + i, "German");
+      verdict = "Differs &mdash; " + g.m;
+    } else if (g.s === "differs") {
+      state = "unver";
+      right = '<figure class="unver"><div class="mark" aria-hidden="true">&ne;</div>'
+        + "<figcaption>German</figcaption></figure>";
+      verdict = "Differs &mdash; varies by maker, not charted here";
+    } else {
+      state = "same";
+      right = fig(b.h, "vg" + i, "German &mdash; same");
+      verdict = "Identical in both systems";
+    }
+    return '<div class="vscell ' + state + '">'
+      + '<div class="n">' + n.name + '<span class="oct">' + n.octave + "</span></div>"
+      + '<div class="pair">' + fig(b.h, "vb" + i, "Baroque") + right + "</div>"
+      + '<div class="v">' + verdict + "</div>"
+      + '<div class="c"><code class="fing">' + fingerCode(b.h) + "</code>"
+      + (g.s === "german" ? '<code class="fing alt">' + fingerCode(g.h) + "</code>" : "")
+      + "</div></div>";
+  }).join("");
+  return '<div class="vsgrid">' + cells + "</div>";
+}
+
+/* Letter-note reference table for the beginner notes page. */
+function lettersHTML(row, midiBase) {
+  var rows = data.NOTES.map(function (note, i) {
+    if (note.r !== row) return "";
+    var n = data.noteInfo(i, midiBase);
+    return "<tr><th>" + n.name + '<span class="oct">' + n.octave + "</span></th>"
+      + '<td><code class="fing">' + fingerCode(note.h) + "</code></td>"
+      + "<td>" + note.m.charAt(0).toUpperCase() + note.m.slice(1) + "</td></tr>";
+  }).join("");
+  return '<table class="cmp letters"><thead><tr><th>Note</th><th>Cover these holes</th>'
+    + "<th>What it feels like</th></tr></thead><tbody>" + rows + "</tbody></table>";
+}
+
 function fill(cfg) {
   var html = fs.readFileSync(path.join(TPL, cfg.tpl), "utf8");
   html = html
@@ -147,7 +242,10 @@ function fill(cfg) {
     .replace(/\{\{FONTS\}\}/g, FONTS)
     .replace(/\{\{REPORT_ICON\}\}/g, REPORT_ICON)
     .replace(/\{\{TOOL\}\}/g, cfg.instrument ? toolHTML(cfg.instrument, PLAY_SCALE_TIP) : "")
-    .replace(/\{\{SHEET\}\}/g, cfg.sheet ? sheetHTML(cfg.sheet.title, cfg.sheet.pdf, cfg.instrument) : "");
+    .replace(/\{\{SHEET\}\}/g, cfg.sheet ? sheetHTML(cfg.sheet.title, cfg.sheet.pdf, cfg.instrument) : "")
+    .replace(/\{\{COMPARE\}\}/g, compareHTML())
+    .replace(/\{\{LETTERS1\}\}/g, lettersHTML(1, MIDI.C))
+    .replace(/\{\{LETTERS2\}\}/g, lettersHTML(2, MIDI.C));
   fs.writeFileSync(path.join(ROOT, cfg.out), html);
   console.log("built", cfg.out);
 }
@@ -187,6 +285,9 @@ fs.writeFileSync(path.join(ROOT, "robots.txt"), robots);
 console.log("built robots.txt");
 
 /* ---- sitemap.xml ---- */
+/* lastmod: the date each page's content last really changed. Keep
+   these honest — a sitemap that claims every page changed on every
+   build is a sitemap crawlers learn to ignore. */
 var TODAY = "2026-09-13";
 var URLS = [
   { loc: "/",                               prio: "1.0" },
@@ -196,8 +297,8 @@ var URLS = [
   { loc: "/sopranino.html",                 prio: "0.6" },
   { loc: "/great-bass.html",                prio: "0.6" },
   { loc: "/recorder-fingering-chart-pdf.html", prio: "0.8" },
-  { loc: "/german-fingering-recorder-chart.html", prio: "0.7" },
-  { loc: "/recorder-notes.html",            prio: "0.7" },
+  { loc: "/german-fingering-recorder-chart.html", prio: "0.8", mod: "2026-09-20" },
+  { loc: "/recorder-notes.html",            prio: "0.8", mod: "2026-09-20" },
   { loc: "/privacy.html",                   prio: "0.3" },
   { loc: "/terms.html",                     prio: "0.3" }
 ];
@@ -206,7 +307,7 @@ var sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n'
 URLS.forEach(function (u) {
   sitemap += "  <url>\n"
     + "    <loc>" + CONFIG.domain + u.loc + "</loc>\n"
-    + "    <lastmod>" + TODAY + "</lastmod>\n"
+    + "    <lastmod>" + (u.mod || TODAY) + "</lastmod>\n"
     + "    <changefreq>monthly</changefreq>\n"
     + "    <priority>" + u.prio + "</priority>\n"
     + "  </url>\n";

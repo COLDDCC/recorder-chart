@@ -36,14 +36,14 @@ const TOGGLE = `<button class="nav-toggle" type="button" aria-expanded="false" a
 
 const NAV_LINKS = [
   { href: "/",                                  label: "Soprano",  key: "index"  },
-  { href: "/alto.html",                         label: "Alto",     key: "alto"   },
-  { href: "/tenor.html",                        label: "Tenor",    key: "tenor"  },
-  { href: "/bass.html",                         label: "Bass",     key: "bass"   },
-  { href: "/sopranino.html",                    label: "Sopranino", key: "sopranino" },
-  { href: "/great-bass.html",                   label: "Great Bass", key: "great-bass" },
-  { href: "/recorder-fingering-chart-pdf.html", label: "PDF &amp; Print", key: "pdf" },
-  { href: "/german-fingering-recorder-chart.html", label: "Baroque vs German", key: "german" },
-  { href: "/recorder-notes.html",               label: "Notes",    key: "notes"  },
+  { href: "/alto",                         label: "Alto",     key: "alto"   },
+  { href: "/tenor",                        label: "Tenor",    key: "tenor"  },
+  { href: "/bass",                         label: "Bass",     key: "bass"   },
+  { href: "/sopranino",                    label: "Sopranino", key: "sopranino" },
+  { href: "/great-bass",                   label: "Great Bass", key: "great-bass" },
+  { href: "/recorder-fingering-chart-pdf", label: "PDF &amp; Print", key: "pdf" },
+  { href: "/german-fingering-recorder-chart", label: "Baroque vs German", key: "german" },
+  { href: "/recorder-notes",               label: "Notes",    key: "notes"  },
   { href: "/#faq",                              label: "FAQ",      key: null     }
 ];
 
@@ -56,9 +56,9 @@ function navFor(activeKey) {
 const FOOTER = `    <p class="foot-brand">Recorder<span>Chart</span> — free recorder fingering references</p>
     <p class="foot-verify">All 28 fingerings were checked note-by-note against the American Recorder Society and Yamaha charts in August 2026; the source behind every fingering is listed on each chart page.</p>
     <nav class="foot-links" aria-label="Footer">
-      <a href="/">Soprano</a><a href="/alto.html">Alto</a><a href="/tenor.html">Tenor</a><a href="/bass.html">Bass</a><a href="/sopranino.html">Sopranino</a><a href="/great-bass.html">Great Bass</a>
-      <a href="/recorder-fingering-chart-pdf.html">Printable PDF</a><a href="/german-fingering-recorder-chart.html">Baroque vs German fingering</a><a href="/recorder-notes.html">Recorder notes with letters</a>
-      <a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/#contact">Report a correction</a>
+      <a href="/">Soprano</a><a href="/alto">Alto</a><a href="/tenor">Tenor</a><a href="/bass">Bass</a><a href="/sopranino">Sopranino</a><a href="/great-bass">Great Bass</a>
+      <a href="/recorder-fingering-chart-pdf">Printable PDF</a><a href="/german-fingering-recorder-chart">Baroque vs German fingering</a><a href="/recorder-notes">Recorder notes with letters</a>
+      <a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/#contact">Report a correction</a>
     </nav>
     <p class="foot-copy">Maintained by SKY AND WIND &middot; &copy; 2026</p>`;
 
@@ -291,16 +291,16 @@ console.log("built robots.txt");
 var TODAY = "2026-09-13";
 var URLS = [
   { loc: "/",                               prio: "1.0" },
-  { loc: "/alto.html",                      prio: "0.9" },
-  { loc: "/tenor.html",                     prio: "0.8" },
-  { loc: "/bass.html",                      prio: "0.8" },
-  { loc: "/sopranino.html",                 prio: "0.6" },
-  { loc: "/great-bass.html",                prio: "0.6" },
-  { loc: "/recorder-fingering-chart-pdf.html", prio: "0.8" },
-  { loc: "/german-fingering-recorder-chart.html", prio: "0.8", mod: "2026-09-20" },
-  { loc: "/recorder-notes.html",            prio: "0.8", mod: "2026-09-20" },
-  { loc: "/privacy.html",                   prio: "0.3" },
-  { loc: "/terms.html",                     prio: "0.3" }
+  { loc: "/alto",                      prio: "0.9" },
+  { loc: "/tenor",                     prio: "0.8" },
+  { loc: "/bass",                      prio: "0.8" },
+  { loc: "/sopranino",                 prio: "0.6" },
+  { loc: "/great-bass",                prio: "0.6" },
+  { loc: "/recorder-fingering-chart-pdf", prio: "0.8" },
+  { loc: "/german-fingering-recorder-chart", prio: "0.8", mod: "2026-09-20" },
+  { loc: "/recorder-notes",            prio: "0.8", mod: "2026-09-20" },
+  { loc: "/privacy",                   prio: "0.3" },
+  { loc: "/terms",                     prio: "0.3" }
 ];
 var sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n'
   + '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';

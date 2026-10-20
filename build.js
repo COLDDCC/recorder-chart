@@ -45,6 +45,7 @@ const NAV_LINKS = [
   { href: "/german-fingering-recorder-chart", label: "Baroque vs German", key: "german" },
   { href: "/recorder-notes",               label: "Notes",    key: "notes"  },
   { href: "/christmas-recorder-songs", label: "Christmas songs", key: "christmas" },
+  { href: "/trumpet-fingering-chart", label: "Trumpet", key: "trumpet" },
   { href: "/#faq",                              label: "FAQ",      key: null     }
 ];
 
@@ -274,6 +275,7 @@ var PAGES = [
 ];
 
 PAGES.forEach(fill);
+require("./build-trumpet")({domain:CONFIG.domain,nav:navFor("trumpet"),toggle:TOGGLE,footer:FOOTER,fonts:FONTS});
 require("./build-songs")({domain:CONFIG.domain,nav:navFor("christmas"),toggle:TOGGLE,footer:FOOTER,fonts:FONTS});
 
 /* ---- robots.txt ---- */
@@ -306,6 +308,7 @@ var URLS = [
 ];
 var sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n'
   + '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+URLS.push({loc:"/trumpet-fingering-chart",prio:"0.8",mod:"2026-10-20"});
 URLS.push({loc:"/christmas-recorder-songs",prio:"0.8",mod:"2026-10-20"});
 require("./songs-data").forEach(s=>URLS.push({loc:"/"+s.slug,prio:"0.8",mod:"2026-10-20"}));
 URLS.forEach(function (u) {

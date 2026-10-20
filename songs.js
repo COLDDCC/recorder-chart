@@ -11,7 +11,7 @@ try{const Audio=window.AudioContext||window.webkitAudioContext;if(!Audio)throw E
 play.textContent='Restart melody';let i=0;
 function next(){if(run!==generation)return;notes.forEach(n=>n.classList.remove('is-playing'));if(i>=list.length){stop();status.textContent='Finished. Play again or practise one phrase.';return;}
 const n=list[i++],duration=+n.dataset.beats*60/+tempo.value;
-n.classList.add('is-playing');status.textContent=n.querySelector('strong').textContent+' · '+n.dataset.beats+' beats';
+n.classList.add('is-playing');status.textContent=n.querySelector('strong').textContent+' · '+n.dataset.beats+(+n.dataset.beats===1?' beat':' beats');
 const osc=audio.createOscillator(),gain=audio.createGain();voice=osc;osc.type='sine';osc.frequency.value=440*Math.pow(2,(+n.dataset.midi-69)/12);osc.connect(gain);gain.connect(audio.destination);
 const now=audio.currentTime;gain.gain.setValueAtTime(0,now);gain.gain.linearRampToValueAtTime(.16,now+.015);gain.gain.setValueAtTime(.16,now+Math.max(.02,duration*.8));gain.gain.linearRampToValueAtTime(0,now+duration*.95);osc.start(now);osc.stop(now+duration);timer=setTimeout(next,duration*1000);
 }next();

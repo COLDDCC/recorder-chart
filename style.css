@@ -202,3 +202,5 @@ footer .foot-copy{font-size:12.5px}
   .cell svg{max-width:24px;margin:2px auto 0}
   .cell .m{display:none}
 }
+/* Keep the extended navigation inside tablet and desktop viewports. */
+@media(min-width:701px){.masthead nav{flex-wrap:wrap;justify-content:flex-end;gap:10px 16px}.masthead .logo{flex-shrink:0}}

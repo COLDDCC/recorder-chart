@@ -44,6 +44,7 @@ const NAV_LINKS = [
   { href: "/recorder-fingering-chart-pdf", label: "PDF &amp; Print", key: "pdf" },
   { href: "/german-fingering-recorder-chart", label: "Baroque vs German", key: "german" },
   { href: "/recorder-notes",               label: "Notes",    key: "notes"  },
+  { href: "/christmas-recorder-songs", label: "Christmas songs", key: "christmas" },
   { href: "/#faq",                              label: "FAQ",      key: null     }
 ];
 
@@ -58,7 +59,7 @@ const FOOTER = `    <p class="foot-brand">Recorder<span>Chart</span> — free re
     <nav class="foot-links" aria-label="Footer">
       <a href="/">Soprano</a><a href="/alto">Alto</a><a href="/tenor">Tenor</a><a href="/bass">Bass</a><a href="/sopranino">Sopranino</a><a href="/great-bass">Great Bass</a>
       <a href="/recorder-fingering-chart-pdf">Printable PDF</a><a href="/german-fingering-recorder-chart">Baroque vs German fingering</a><a href="/recorder-notes">Recorder notes with letters</a>
-      <a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/#contact">Report a correction</a>
+      <a href="/christmas-recorder-songs">Christmas recorder songs</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/#contact">Report a correction</a>
     </nav>
     <p class="foot-copy">Maintained by SKY AND WIND &middot; &copy; 2026</p>`;
 
@@ -273,6 +274,7 @@ var PAGES = [
 ];
 
 PAGES.forEach(fill);
+require("./build-songs")({domain:CONFIG.domain,nav:navFor("christmas"),toggle:TOGGLE,footer:FOOTER,fonts:FONTS});
 
 /* ---- robots.txt ---- */
 var robots = "User-agent: *\nAllow: /\n\n"
@@ -290,7 +292,7 @@ console.log("built robots.txt");
    build is a sitemap crawlers learn to ignore. */
 var TODAY = "2026-09-13";
 var URLS = [
-  { loc: "/",                               prio: "1.0" },
+  { loc: "/",                               prio: "1.0", mod: "2026-10-20" },
   { loc: "/alto",                      prio: "0.9" },
   { loc: "/tenor",                     prio: "0.8" },
   { loc: "/bass",                      prio: "0.8" },
@@ -298,12 +300,14 @@ var URLS = [
   { loc: "/great-bass",                prio: "0.6" },
   { loc: "/recorder-fingering-chart-pdf", prio: "0.8" },
   { loc: "/german-fingering-recorder-chart", prio: "0.8", mod: "2026-09-20" },
-  { loc: "/recorder-notes",            prio: "0.8", mod: "2026-09-20" },
+  { loc: "/recorder-notes",            prio: "0.8", mod: "2026-10-20" },
   { loc: "/privacy",                   prio: "0.3" },
   { loc: "/terms",                     prio: "0.3" }
 ];
 var sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n'
   + '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+URLS.push({loc:"/christmas-recorder-songs",prio:"0.8",mod:"2026-10-20"});
+require("./songs-data").forEach(s=>URLS.push({loc:"/"+s.slug,prio:"0.8",mod:"2026-10-20"}));
 URLS.forEach(function (u) {
   sitemap += "  <url>\n"
     + "    <loc>" + CONFIG.domain + u.loc + "</loc>\n"

@@ -24,14 +24,15 @@
 <link rel="icon" href="/favicon.ico" sizes="any">
 {{FONTS}}
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="notes.css">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","headline":"Recorder Notes with Letters — Every Note, Plus Easy Songs","url":"{{DOMAIN}}/recorder-notes","description":"Every recorder note with its letter name and the holes to cover, plus nine easy songs written out in letter notes.","datePublished":"2026-08-06","dateModified":"2026-10-20","author":{"@type":"Organization","name":"SKY AND WIND"},"publisher":{"@type":"Organization","name":"SKY AND WIND"},"mainEntityOfPage":"{{DOMAIN}}/recorder-notes"}
+{"@context":"https://schema.org","@type":"Article","headline":"Recorder Notes with Letters — Every Note, Plus Easy Songs","url":"{{DOMAIN}}/recorder-notes","description":"Every recorder note with its letter name and the holes to cover, plus nine easy songs written out in letter notes.","datePublished":"2026-08-06","dateModified":"2026-10-21","author":{"@type":"Organization","name":"SKY AND WIND"},"publisher":{"@type":"Organization","name":"SKY AND WIND"},"mainEntityOfPage":"{{DOMAIN}}/recorder-notes"}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"{{DOMAIN}}/"},{"@type":"ListItem","position":2,"name":"Recorder Notes with Letters","item":"{{DOMAIN}}/recorder-notes"}]}
 </script>
 </head>
-<body>
+<body class="notes-page">
 <a class="skip-link" href="#main">Skip to content</a>
 
 <header class="masthead">
@@ -48,24 +49,23 @@
 <div class="wrap">
   <section class="hero" id="top">
     <p class="eyebrow">Notes and letters</p>
-    <div class="hero-head">
-      <div class="hero-copy">
-        <h1>Recorder notes with letters</h1>
-        <p class="lede">Every recorder note, its letter name, and exactly which holes to cover &mdash; then nine songs written out in letter notes so you can play something real today. You only need three notes for the first one.</p>
-        <p class="byline"><span class="who">By SKY AND WIND</span><span class="pub">Published August 6, 2026 &middot; Updated October 20, 2026</span></p>
-      </div>
-      <div class="hero-art">
-        <img src="assets/recorder-doodle.svg" alt="Hand-drawn recorder with floating music notes" width="460" height="170" loading="lazy">
-      </div>
-    </div>
+    <h1>Recorder notes with letters</h1>
+    <p class="lede">Tap a note to hear it and see which holes to cover. Start with B, A and G, then try the easy songs below.</p>
   </section>
 </div>
 
 <div class="wrap">
+  <section class="notes-tool" aria-labelledby="learn-title">
+    <h2 id="learn-title">Your first eight recorder notes</h2>
+    <p>Soprano recorder · Baroque fingering · Filled holes = covered; 0 = back thumb hole.</p>
+    <div class="learn-grid">{{BEGINNER_NOTES}}</div>
+    <div class="learn-actions"><button type="button" id="learnStop">Stop sound</button><a href="#songs">Easy songs ↓</a><a href="/recorder-fingering-chart-pdf">Printable chart ↓</a><a href="/">All 28 notes →</a></div>
+    <p id="learnStatus" role="status" aria-live="polite">Try B5: cover the thumb hole and hole 1. Audio is a synthesized pitch guide.</p>
+  </section>
   <section class="prose" id="first" style="border-top:0;margin-top:14px">
     <p class="eyebrow">The first three notes</p>
     <h2>B, A and G — the whole first lesson</h2>
-    <p>Start at the top of the recorder's first octave. B needs the thumb and one finger; A adds a second; G adds a third. Every note below adds exactly one finger to the one before it, which is why school methods start here.</p>
+    <p>Start at the top of the recorder's first octave. B needs the thumb and one finger; A adds a second; G adds a third. Each step from B to A to G adds one finger, which is why school methods start here.</p>
     <ul>
       <li><strong>B</strong> &mdash; thumb and hole 1</li>
       <li><strong>A</strong> &mdash; thumb and holes 1, 2</li>
@@ -78,13 +78,13 @@
     <p class="eyebrow">Every note</p>
     <h2>The recorder note chart, letter by letter</h2>
     <p>Hole numbers run down the instrument: <strong>0</strong> is the thumb hole underneath, then <strong>1</strong> to <strong>7</strong> from the top. A number listed means cover that hole; anything not listed stays open. <strong>&oslash;</strong> means pinch the thumb &mdash; roll it back to leave a narrow crescent &mdash; and <strong>&frac12;</strong> means cover only the outer hole of a double hole.</p>
-    <p>These are the written note names for a <strong>soprano or tenor</strong> recorder. On an <a href="/alto">alto</a> or <a href="/bass">bass</a> the same holes give a different sounding pitch, but the written letters and fingerings on those pages work exactly the same way.</p>
+    <p>The octave numbers here show <strong>soprano sounding pitches</strong> (C5 upward). A <a href="/tenor">tenor</a> uses the same finger positions and letter names but sounds an octave lower. Use the separate <a href="/alto">alto</a> or <a href="/bass">bass</a> chart for F recorders.</p>
 
     <h3>First octave — C to C</h3>
     {{LETTERS1}}
 
     <h3>Second octave — pinch the thumb</h3>
-    <p>Everything above the octave C needs the thumb pinched rather than fully covered, and a slightly faster, narrower breath. Take these slowly; the pinch is a millimetre of movement, not a lift.</p>
+    <p>Thumb position varies by note: D6 has an open thumb hole; higher notes in this table use a small thumb opening. Follow each row rather than pinching for every high note. Take these slowly; the pinch is a millimetre of movement, not a lift.</p>
     {{LETTERS2}}
 
     <p class="sources">Every fingering above is the Baroque (English) system, checked note-by-note against the American Recorder Society and Yamaha charts. If your recorder has a <strong>G</strong> stamped under the thumb hole, F and F&#9839; are different &mdash; see <a href="/german-fingering-recorder-chart">Baroque vs German fingering</a>. For the top register and printable versions, see the <a href="/">full soprano chart</a> or the <a href="/recorder-fingering-chart-pdf">printable PDFs</a>.</p>
@@ -187,5 +187,7 @@
 </script>
 
 <script src="site.js" defer></script>
+<script src="fingering-data.js" defer></script>
+<script src="notes.js" defer></script>
 </body>
 </html>

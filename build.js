@@ -233,6 +233,13 @@ function lettersHTML(row, midiBase) {
     + "<th>What it feels like</th></tr></thead><tbody>" + rows + "</tbody></table>";
 }
 
+function beginnerNotesHTML() {
+  return [0,2,4,5,7,9,11,12].map(function(i) {
+    var n=data.noteInfo(i,MIDI.C);
+    return '<button type="button" class="learn-note" data-note="'+i+'" aria-pressed="false"><strong>'+n.name+n.octave+'</strong><svg viewBox="0 0 40 96" aria-hidden="true">'+data.miniSVG(data.NOTES[i].h,'learn'+i,data.NOTES[i].bell)+'</svg><span>'+fingerCode(data.NOTES[i].h)+'</span></button>';
+  }).join('');
+}
+
 function fill(cfg) {
   var html = fs.readFileSync(path.join(TPL, cfg.tpl), "utf8");
   html = html
@@ -246,6 +253,7 @@ function fill(cfg) {
     .replace(/\{\{TOOL\}\}/g, cfg.instrument ? toolHTML(cfg.instrument, cfg.tip || PLAY_SCALE_TIP) : "")
     .replace(/\{\{SHEET\}\}/g, cfg.sheet ? sheetHTML(cfg.sheet.title, cfg.sheet.pdf, cfg.instrument) : "")
     .replace(/\{\{COMPARE\}\}/g, compareHTML())
+    .replace(/\{\{BEGINNER_NOTES\}\}/g, beginnerNotesHTML())
     .replace(/\{\{LETTERS1\}\}/g, lettersHTML(1, MIDI.C))
     .replace(/\{\{LETTERS2\}\}/g, lettersHTML(2, MIDI.C));
   fs.writeFileSync(path.join(ROOT, cfg.out), html);
@@ -304,7 +312,7 @@ var URLS = [
   { loc: "/great-bass",                prio: "0.6" },
   { loc: "/recorder-fingering-chart-pdf", prio: "0.8", mod: "2026-10-20" },
   { loc: "/german-fingering-recorder-chart", prio: "0.8", mod: "2026-09-20" },
-  { loc: "/recorder-notes",            prio: "0.8", mod: "2026-10-20" },
+  { loc: "/recorder-notes",            prio: "0.8", mod: "2026-10-21" },
   { loc: "/privacy",                   prio: "0.3" },
   { loc: "/terms",                     prio: "0.3" }
 ];

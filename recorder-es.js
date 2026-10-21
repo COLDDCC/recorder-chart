@@ -1,0 +1,11 @@
+(function(){
+'use strict';
+const d=window.RecorderData,es=window.RecorderSpanish,buttons=[...document.querySelectorAll('.es-note')],get=id=>document.getElementById(id);if(!buttons.length)return;
+let current=0,audio,voice,timer,run=0;
+function stop(){run++;clearTimeout(timer);if(voice){try{voice.stop();}catch(e){}voice=null;}}
+function select(i){current=i;buttons.forEach((b,j)=>b.setAttribute('aria-pressed',String(i===j)));get('esName').textContent=es.name(i);get('esDiagram').innerHTML=buttons[i].querySelector('svg').outerHTML;get('esDescription').textContent=es.description(d.NOTES[i]);}
+async function init(){const Audio=window.AudioContext||window.webkitAudioContext;if(!Audio)throw Error('unsupported');audio=audio||new Audio();await audio.resume();}
+function tone(i){const o=audio.createOscillator(),g=audio.createGain(),now=audio.currentTime;voice=o;o.frequency.value=d.freqOf(72+i);o.connect(g);g.connect(audio.destination);g.gain.setValueAtTime(0,now);g.gain.linearRampToValueAtTime(.14,now+.015);g.gain.setValueAtTime(.14,now+.45);g.gain.linearRampToValueAtTime(0,now+.55);o.start(now);o.stop(now+.57);}
+async function play(i){stop();const token=run;select(i);try{await init();if(token!==run)return;tone(i);get('esStatus').textContent='Sonando: '+es.name(i);}catch(e){get('esStatus').textContent='El audio no está disponible. Puedes leer e imprimir la tabla.';}}
+buttons.forEach((b,i)=>b.addEventListener('click',()=>play(i)));get('esPlay').addEventListener('click',()=>play(current));get('esStop').addEventListener('click',()=>{stop();get('esStatus').textContent='Reproducción detenida.';});get('esScale').addEventListener('click',async()=>{stop();const token=run;try{await init();if(token!==run)return;const steps=[0,2,4,5,7,9,11,12];let index=0;function next(){if(token!==run)return;if(index===steps.length){stop();get('esStatus').textContent='Escala de do terminada.';return;}const i=steps[index++];select(i);tone(i);get('esStatus').textContent='Sonando: '+es.name(i);timer=setTimeout(next,650);}next();}catch(e){get('esStatus').textContent='El audio no está disponible. Puedes leer e imprimir la tabla.';}});get('esPrint').addEventListener('click',()=>{stop();window.print();});document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});window.addEventListener('pagehide',stop);
+})();

@@ -73,6 +73,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://recorder-chart.com/es/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://recorder-chart.com/christmas-recorder-songs</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>monthly</changefreq>

@@ -96,6 +96,7 @@ function toolHTML(instrument, tip) {
     + '</div>'
     + '<div class="panel">'
     + '<div class="controls">'
+    + '<button class="ghost" id="btnView" type="button" aria-pressed="false" aria-controls="bigRecorder">Enlarge view</button>'
     + '<div class="seg" role="group" aria-label="Instrument size">'
     + '<button id="btnC" type="button" aria-pressed="' + btnC + '">C recorders &mdash; soprano, tenor</button>'
     + '<button id="btnF" type="button" aria-pressed="' + btnF + '">F recorders &mdash; alto, bass</button>'

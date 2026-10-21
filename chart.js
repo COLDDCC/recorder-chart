@@ -169,3 +169,8 @@ if (inF !== DEFAULT_F) {
 }
 
 }
+
+(function(){
+ var button=document.getElementById('btnView');if(!button)return;
+ button.addEventListener('click',function(){var large=document.body.classList.toggle('chart-enlarged');button.setAttribute('aria-pressed',String(large));button.textContent=large?'Compact view':'Enlarge view';});
+})();

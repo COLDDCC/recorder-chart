@@ -273,3 +273,15 @@ footer .foot-copy{font-size:12.5px}
 }
 }
 @media screen and (max-width:700px){.chart-page .key{line-height:1}.chart-page .key b{font-size:15px;line-height:1.1}.chart-page .key small{display:block;font-size:9px;line-height:1.2;margin-top:3px}.chart-page table.cmp code{white-space:normal;overflow-wrap:anywhere}}
+/* The working chart precedes its introduction in both visual and document order. */
+@media screen{
+.chart-page .hero{padding-top:0}
+.chart-page .chart-intro{margin-top:24px}
+.chart-page .chart-intro .byline{display:flex}
+.chart-page #btnView{order:3}
+.chart-page.chart-enlarged .tool{grid-template-columns:minmax(280px,420px) minmax(0,1fr)}
+.chart-page.chart-enlarged .stage{display:flex;align-self:stretch;padding:18px 16px 26px;gap:14px}
+.chart-page.chart-enlarged svg.recorder{width:100%;max-width:344px;height:auto;grid-column:auto;grid-row:auto}
+.chart-page.chart-enlarged .readout .name{font-size:56px}
+@media(max-width:880px){.chart-page.chart-enlarged .tool{grid-template-columns:minmax(0,1fr)}.chart-page.chart-enlarged .stage{border-right:0;border-bottom:1px solid var(--rule)}}
+}

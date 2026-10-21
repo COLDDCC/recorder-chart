@@ -256,6 +256,7 @@ function fill(cfg) {
     .replace(/\{\{BEGINNER_NOTES\}\}/g, beginnerNotesHTML())
     .replace(/\{\{LETTERS1\}\}/g, lettersHTML(1, MIDI.C))
     .replace(/\{\{LETTERS2\}\}/g, lettersHTML(2, MIDI.C));
+  if (cfg.instrument) html = html.replace("<body ", '<body class="chart-page" ');
   fs.writeFileSync(path.join(ROOT, cfg.out), html);
   console.log("built", cfg.out);
 }

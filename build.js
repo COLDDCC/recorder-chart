@@ -243,7 +243,7 @@ function fill(cfg) {
     .replace(/\{\{FOOTER\}\}/g, FOOTER)
     .replace(/\{\{FONTS\}\}/g, FONTS)
     .replace(/\{\{REPORT_ICON\}\}/g, REPORT_ICON)
-    .replace(/\{\{TOOL\}\}/g, cfg.instrument ? toolHTML(cfg.instrument, PLAY_SCALE_TIP) : "")
+    .replace(/\{\{TOOL\}\}/g, cfg.instrument ? toolHTML(cfg.instrument, cfg.tip || PLAY_SCALE_TIP) : "")
     .replace(/\{\{SHEET\}\}/g, cfg.sheet ? sheetHTML(cfg.sheet.title, cfg.sheet.pdf, cfg.instrument) : "")
     .replace(/\{\{COMPARE\}\}/g, compareHTML())
     .replace(/\{\{LETTERS1\}\}/g, lettersHTML(1, MIDI.C))
@@ -260,6 +260,7 @@ var PAGES = [
   { tpl: "tenor.template.html", out: "tenor.html", key: "tenor",   instrument: "C",
     sheet: { title: "Tenor Recorder &mdash; Fingering Chart", pdf: "tenor-recorder-fingering-chart.pdf" } },
   { tpl: "bass.template.html",  out: "bass.html",  key: "bass",    instrument: "F",
+    tip: "On an F recorder, try E, D and C: thumb plus hole 1, then add hole 2, then hole 3. These use only your left hand. Follow the note names shown on this chart.",
     sheet: { title: "Bass Recorder &mdash; Fingering Chart", pdf: "bass-recorder-fingering-chart.pdf" } },
   { tpl: "sopranino.template.html", out: "sopranino.html", key: "sopranino", instrument: "F",
     sheet: { title: "Sopranino Recorder &mdash; Fingering Chart", pdf: "sopranino-recorder-fingering-chart.pdf" } },

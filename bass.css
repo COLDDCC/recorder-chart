@@ -1,0 +1,13 @@
+/* Bass download access stays beside the interactive chart on every screen. */
+.bass-page .hero{padding-top:20px}
+.bass-page .hero h1{max-width:none;font-size:clamp(28px,4vw,44px)}
+.bass-page .hero p.lede{max-width:76ch;font-size:16px;margin-top:8px}
+.bass-page .byline{margin:8px 0}
+.bass-downloads{display:flex;align-items:center;flex-wrap:wrap;gap:10px 16px;margin-top:14px;font-size:14px}
+.bass-download-primary{display:inline-flex;align-items:center;min-height:44px;padding:10px 16px;border-radius:3px;background:var(--mimeo);color:white;text-decoration:none;font-weight:600}
+.bass-download-primary:hover{background:var(--ink)}
+.bass-download-note{font-size:12px;color:var(--ink-soft);margin:7px 0 0}
+.bass-page .tool{margin-top:14px}
+.bass-downloads a:focus-visible,.bass-downloads button:focus-visible{outline:3px solid var(--pencil);outline-offset:3px}
+@media(max-width:700px){.bass-page .hero{padding-top:14px}.bass-downloads{gap:8px 12px}.bass-download-primary{padding:9px 12px}.bass-page .hero-head{gap:0}}
+@media print{.bass-downloads,.bass-download-note{display:none!important}}

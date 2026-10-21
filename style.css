@@ -285,3 +285,7 @@ footer .foot-copy{font-size:12.5px}
 .chart-page.chart-enlarged .readout .name{font-size:56px}
 @media(max-width:880px){.chart-page.chart-enlarged .tool{grid-template-columns:minmax(0,1fr)}.chart-page.chart-enlarged .stage{border-right:0;border-bottom:1px solid var(--rule)}}
 }
+
+/* Instrument-neutral minimal music identity */
+.logo{display:inline-flex;align-items:center;gap:9px;font-family:"Instrument Sans",sans-serif;font-weight:600;letter-spacing:-.035em}
+.logo::before{content:"";display:inline-block;width:27px;height:27px;flex:0 0 27px;background:url("/favicon.svg") center/contain no-repeat;border:1px solid #e6e3dd;border-radius:8px}

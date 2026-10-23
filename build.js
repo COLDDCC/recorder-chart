@@ -313,8 +313,8 @@ var URLS = [
   { loc: "/sopranino",                 prio: "0.6" },
   { loc: "/great-bass",                prio: "0.6" },
   { loc: "/recorder-fingering-chart-pdf", prio: "0.8", mod: "2026-10-20" },
-  { loc: "/german-fingering-recorder-chart", prio: "0.8", mod: "2026-09-20" },
-  { loc: "/recorder-notes",            prio: "0.8", mod: "2026-10-21" },
+  { loc: "/german-fingering-recorder-chart", prio: "0.8", mod: "2026-10-23" },
+  { loc: "/recorder-notes",            prio: "0.8", mod: "2026-10-23" },
   { loc: "/privacy",                   prio: "0.3" },
   { loc: "/terms",                     prio: "0.3" }
 ];

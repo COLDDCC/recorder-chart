@@ -1,0 +1,21 @@
+# Cloudflare Workers static-asset headers.
+# PDFs cannot carry a <link rel=canonical>, so send it as an HTTP header.
+# This consolidates www.recorder-chart.com/*.pdf onto the apex domain in Google.
+
+/alto-recorder-fingering-chart.pdf
+  Link: <https://recorder-chart.com/alto-recorder-fingering-chart.pdf>; rel="canonical"
+
+/bass-recorder-fingering-chart.pdf
+  Link: <https://recorder-chart.com/bass-recorder-fingering-chart.pdf>; rel="canonical"
+
+/great-bass-recorder-fingering-chart.pdf
+  Link: <https://recorder-chart.com/great-bass-recorder-fingering-chart.pdf>; rel="canonical"
+
+/recorder-fingering-chart.pdf
+  Link: <https://recorder-chart.com/recorder-fingering-chart.pdf>; rel="canonical"
+
+/sopranino-recorder-fingering-chart.pdf
+  Link: <https://recorder-chart.com/sopranino-recorder-fingering-chart.pdf>; rel="canonical"
+
+/tenor-recorder-fingering-chart.pdf
+  Link: <https://recorder-chart.com/tenor-recorder-fingering-chart.pdf>; rel="canonical"

@@ -93,6 +93,7 @@ section.prose p{max-width:68ch;color:#2C3547}
 table.cmp{border-collapse:collapse;width:100%;font-size:15px;margin-top:16px}
 table.cmp th,table.cmp td{border:1px solid var(--rule);padding:9px 12px;text-align:left;vertical-align:top}
 table.cmp th{background:var(--mimeo-soft);font-weight:600}
+@media (max-width:520px){table.cmp{font-size:14px}table.cmp th,table.cmp td{padding:7px 8px;overflow-wrap:anywhere}table.cmp code{white-space:normal;overflow-wrap:anywhere}}
 code.fing{font-family:"IBM Plex Mono",monospace;font-size:14px;background:#fff;border:1px solid var(--rule);padding:1px 6px;border-radius:3px;white-space:nowrap}
 .notes-line{font-family:"IBM Plex Mono",monospace;font-size:15px;background:#fff;border:1px solid var(--rule);border-radius:4px;padding:12px 14px;display:inline-block;line-height:1.9;margin:2px 0}
 

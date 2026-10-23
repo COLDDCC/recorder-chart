@@ -8,3 +8,4 @@ wrangler.jsonc
 .assetsignore
 .gitignore
 *.md
+worker.js
